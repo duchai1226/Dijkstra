@@ -11,16 +11,16 @@ namespace Dijkstra
     {
         public int _tongTrongSo;
         public List<String> _map;
-        public Result(int _tongTrongSo,List<string> _map)
+        public Result(Result a)
         {
-            this._tongTrongSo = _tongTrongSo;
-            this._map = _map;
+            this._tongTrongSo = a._tongTrongSo;
+            this._map = new List<string>(a._map);
         }
     }
     class XuLy
     {
         Input _InputData=new Input();
-        List<Result> _ketQua = new List<Result> { new Result { _tongTrongSo = 0, _map = new List<string>() } };  // Danh sach chua ket qua
+        List<Result> _ketQua = new List<Result>();
         public List<Result> ketQua
         {
             get
@@ -64,8 +64,7 @@ namespace Dijkstra
         //}
         public void Xuat()
         {
-            Result min = new Result();
-            min = ketQua[0];
+            Result min = new Result(ketQua[0]);
             foreach(Result i in ketQua)
             {
                 if(i._tongTrongSo<min._tongTrongSo)
@@ -76,7 +75,7 @@ namespace Dijkstra
             Console.Write("Duong di ngan nhat: ");
             for(int i=0;i<min._map.Count;i++)
             {
-                Console.Write("{0}\t", min._map[i]);
+                Console.Write("{0} ", min._map[i]);
             }
             Console.Write("\nDo dai duong di: {0}",min._tongTrongSo);
 

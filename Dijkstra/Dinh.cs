@@ -88,22 +88,23 @@ namespace Dijkstra
             }
             foreach (DinhKe i in DsDinhKe)
             {
+                if (_name == _InputData.Root)
+                    check.RemoveAll(t => t != _InputData.Root);
                 a._tongTrongSo += i._trongSo;
-                a._map.Add(i._dinh.name);
-                check.Add(i._dinh.name);
-                Result temp = new Result(a._tongTrongSo, a._map);
+                a._map.Add(i._dinh.name);              
                 if (i._dinh.name == _InputData.End)
                 {
-                    xlds.ketQua.Add(temp); 
+                    Result temp = new Result(a);
+                    xlds.ketQua.Add(temp);
                 }           
                 else
                 {
+                    check.Add(i._dinh.name);
                     i._dinh.Duyet(_InputData, xlds, check, a);
                 }
-                temp._map.RemoveAt(temp._map.Count - 1);
-                temp._tongTrongSo -= i._trongSo;
+                a._map.RemoveAt(a._map.Count - 1);
+                a._tongTrongSo -= i._trongSo;
                 //a._map.RemoveAt(a._map.Count - 1);
-                a = temp;
             }
         }
 
