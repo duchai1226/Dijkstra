@@ -9,7 +9,7 @@ namespace Dijkstra
 {
     struct Result
     {
-        public int _tongTrongSo;
+        public double _tongTrongSo;
         public List<String> _map;
         public Result(Result a)
         {
@@ -52,16 +52,9 @@ namespace Dijkstra
         {
             Result a = new Result ();// tao 1 bien kieu Result de tra ket qua ve danh sach ket qua
             List<string> check = new List<string> { _InputData.Root };//List chua cac dinh da xet
-            a._map = new List<string> {_InputData.Root};//Khoi tao so do duong di ngan nhat
-            //List<DinhKe> temp = new List<DinhKe>();
-            //Root.FindNearPoint(_InputData.DsTrongSo);// Xac dinh danh sach cac dinh ke
-            //Root.DsDinhKe=Root.DsDinhKe.OrderBy(t => t._trongSo).ToList();//Sap xep lai thu tu ds dinh
+            a._map = new List<string> {_InputData.Root};//Khoi tao so do duong di ngan nhat         
             Root.Duyet(_InputData,this, check, a);//Tim cac duong di den dich
-        }
-        //public void DuongDiNganNhat()
-        //{
-        //    _InputData.FindPoint(_InputData.Root).Duyet(_InputData,this);
-        //}
+        } 
         public void Xuat()
         {
             Result min = new Result(ketQua[0]);

@@ -11,7 +11,7 @@ namespace Dijkstra
     {
         public Dinh dinhdau;
         public Dinh dinhcuoi;
-        public int TrongSo;
+        public double TrongSo;
     }
     class Input
     {
@@ -100,7 +100,7 @@ namespace Dijkstra
                     Canh a = new Canh();
                     Dinh b1 = new Dinh();
                     Dinh b2 = new Dinh();
-                    a.TrongSo = int.Parse(i["trongso"].InnerText);
+                    a.TrongSo = double.Parse(i["trongso"].InnerText);
                     XmlNode temp = i.SelectSingleNode("dinhdau");
                     b1.name = temp["name"].InnerText;
                     a.dinhdau = b1;                 

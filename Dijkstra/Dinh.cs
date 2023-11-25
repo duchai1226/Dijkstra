@@ -8,7 +8,7 @@ namespace Dijkstra
 {
     struct DinhKe
     {
-        public int _trongSo;
+        public double _trongSo;
         public Dinh _dinh;// Ten cua dinh ke tao voi dinh dang xet canh co trong so la _trongSo
         //public string _status;
     }
@@ -76,35 +76,32 @@ namespace Dijkstra
 
         public void Duyet(Input _InputData,XuLy xlds,List<string> check,Result a)
         {
-            if(DsDinhKe.Count==0)
+            if(DsDinhKe.Count==0) //Nêu đỉnh chưa có danh sách các đỉnh kề thì dò trong input và tạo ra danh sách đỉnh kề
                 FindNearPoint(_InputData.DsTrongSo);
-            
-            DsDinhKe = DsDinhKe.OrderBy(t => t._trongSo).ToList();
-            //int n = DsDinhKe.Count;
-            foreach (DinhKe i in DsDinhKe.ToList())
+            DsDinhKe = DsDinhKe.OrderBy(t => t._trongSo).ToList(); //Sắp xếp các đỉnh kề theo thứ tự tăng dần dựa trên trọng số
+            foreach (DinhKe i in DsDinhKe.ToList()) //Kiểm tra các đỉnh kề của đỉnh đang xét đã được xét trước đây hay chưa
             {
-                if (i._dinh.CheckList(check) > 0)
+                if (i._dinh.CheckList(check) > 0) //Nếu đã xét rồi thì xoá khỏi ds đỉnh kề
                     DsDinhKe.Remove(i);
             }
             foreach (DinhKe i in DsDinhKe)
             {
-                if (_name == _InputData.Root)
-                    check.RemoveAll(t => t != _InputData.Root);
-                a._tongTrongSo += i._trongSo;
-                a._map.Add(i._dinh.name);              
-                if (i._dinh.name == _InputData.End)
+                if (_name == _InputData.Root) //Sau khi xét được 1 đường đi từ 1 đỉnh kề thì reset lại danh sách các đỉnh đã xét để xét đường đi từ 1 đỉnh kề khác 
+                    check.RemoveAll(t => t != _InputData.Root);//Reset lại chỉ trừ đỉnh gốc
+                a._tongTrongSo += i._trongSo; //Cộng trọng số vào tổng trọng số của đường đi
+                a._map.Add(i._dinh.name);  //Thêm đỉnh kề đang xét vào danh sách đường đi            
+                if (i._dinh.name == _InputData.End) //Nếu đỉnh đang xét là đỉnh cần đến
                 {
                     Result temp = new Result(a);
-                    xlds.ketQua.Add(temp);
+                    xlds.ketQua.Add(temp);//Trả về đường đi và trọng số của đường đi
                 }           
-                else
+                else //Ngược lại thì tiếp tục xét
                 {
-                    check.Add(i._dinh.name);
+                    check.Add(i._dinh.name);//Thêm đỉnh đang xét vào ds các đỉnh đã xét
                     i._dinh.Duyet(_InputData, xlds, check, a);
                 }
-                a._map.RemoveAt(a._map.Count - 1);
+                a._map.RemoveAt(a._map.Count - 1); //Sau khi trở ngược về đỉnh trước thì xoá đi điểm đã đến vì kết quả đã được lưu
                 a._tongTrongSo -= i._trongSo;
-                //a._map.RemoveAt(a._map.Count - 1);
             }
         }
 

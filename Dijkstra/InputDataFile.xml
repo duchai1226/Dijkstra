@@ -2,107 +2,152 @@
 <Input>
 	<DsDinh>
 		<Dinh>
-			<name>e</name>
+			<name>0</name>
 		</Dinh>
 		<Dinh>
-			<name>f</name>
+			<name>2</name>
 		</Dinh>
 		<Dinh>
-			<name>a</name>
+			<name>4</name>
 		</Dinh>
 		<Dinh>
-			<name>c</name>
+			<name>6</name>
 		</Dinh>
 		<Dinh>
-			<name>b</name>
+			<name>1</name>
 		</Dinh>
 		<Dinh>
-			<name>d</name>
+			<name>3</name>
+		</Dinh>
+		<Dinh>
+			<name>5</name>
+		</Dinh>
+		<Dinh>
+			<name>7</name>
+		</Dinh>
+		<Dinh>
+			<name>8</name>
 		</Dinh>
 	</DsDinh>
 	<DsCanh>
 		<Canh>
 			<dinhdau>
-				<name>a</name>
+				<name>0</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>b</name>
+				<name>1</name>
 			</dinhcuoi>
-			<trongso>7</trongso>
+			<trongso>2.5</trongso>
 		</Canh>
 		<Canh>
 			<dinhdau>
-				<name>a</name>
+				<name>0</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>d</name>
-			</dinhcuoi>
-			<trongso>5</trongso>
-		</Canh>
-		<Canh>
-			<dinhdau>
-				<name>a</name>
-			</dinhdau>
-			<dinhcuoi>
-				<name>c</name>
-			</dinhcuoi>
-			<trongso>8</trongso>
-		</Canh>
-		<Canh>
-			<dinhdau>
-				<name>b</name>
-			</dinhdau>
-			<dinhcuoi>
-				<name>d</name>
-			</dinhcuoi>
-			<trongso>3</trongso>
-		</Canh>
-		<Canh>
-			<dinhdau>
-				<name>b</name>
-			</dinhdau>
-			<dinhcuoi>
-				<name>e</name>
+				<name>2</name>
 			</dinhcuoi>
 			<trongso>2</trongso>
 		</Canh>
 		<Canh>
 			<dinhdau>
-				<name>d</name>
+				<name>0</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>e</name>
+				<name>3</name>
 			</dinhcuoi>
-			<trongso>9</trongso>
+			<trongso>2.1</trongso>
 		</Canh>
 		<Canh>
 			<dinhdau>
-				<name>c</name>
+				<name>3</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>d</name>
+				<name>5</name>
 			</dinhcuoi>
-			<trongso>3</trongso>
+			<trongso>2.5</trongso>
 		</Canh>
 		<Canh>
 			<dinhdau>
-				<name>c</name>
+				<name>5</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>f</name>
+				<name>7</name>
 			</dinhcuoi>
-			<trongso>4</trongso>
+			<trongso>2.0</trongso>
 		</Canh>
 		<Canh>
 			<dinhdau>
-				<name>f</name>
+				<name>2</name>
 			</dinhdau>
 			<dinhcuoi>
-				<name>e</name>
+				<name>5</name>
 			</dinhcuoi>
-			<trongso>6</trongso>
+			<trongso>1.5</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>1</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>4</name>
+			</dinhcuoi>
+			<trongso>1.0</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>2</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>4</name>
+			</dinhcuoi>
+			<trongso>0.6</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>4</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>6</name>
+			</dinhcuoi>
+			<trongso>2.3</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>5</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>6</name>
+			</dinhcuoi>
+			<trongso>1.9</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>6</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>8</name>
+			</dinhcuoi>
+			<trongso>1.7</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>7</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>8</name>
+			</dinhcuoi>
+			<trongso>2.0</trongso>
+		</Canh>
+		<Canh>
+			<dinhdau>
+				<name>6</name>
+			</dinhdau>
+			<dinhcuoi>
+				<name>7</name>
+			</dinhcuoi>
+			<trongso>1.8</trongso>
 		</Canh>
 	</DsCanh>
-	<Root>a</Root>
-	<End>e</End>
+	<Root>0</Root>
+	<End>8</End>
 </Input>
