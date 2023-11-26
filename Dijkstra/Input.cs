@@ -106,8 +106,7 @@ namespace Dijkstra
                     a.dinhdau = b1;                 
                     temp = i.SelectSingleNode("dinhcuoi");
                     b2.name = temp["name"].InnerText;
-                    a.dinhcuoi = b2;
-                    //a.TrongSo = int.Parse(lscanh[i].SelectSingleNode("Canh/trongso").InnerText);
+                    a.dinhcuoi = b2;                   
                     _DsTrongSo.Add(a);
                 }
                 XmlNode rootend = InputData.SelectSingleNode("Input");
