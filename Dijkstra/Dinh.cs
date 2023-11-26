@@ -10,7 +10,6 @@ namespace Dijkstra
     {
         public double _trongSo;
         public Dinh _dinh;// Ten cua dinh ke tao voi dinh dang xet canh co trong so la _trongSo
-        //public string _status;
     }
     class Dinh
     {
