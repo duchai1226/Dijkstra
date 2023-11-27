@@ -72,17 +72,20 @@ namespace Dijkstra
             }
             return count;
         }
-
-        public void Duyet(Input _InputData,XuLy xlds,List<string> check,Result a)
+        void ChangeCheckList(List<string> check)
         {
-            if(DsDinhKe.Count==0) //Nêu đỉnh chưa có danh sách các đỉnh kề thì dò trong input và tạo ra danh sách đỉnh kề
-                FindNearPoint(_InputData.DsTrongSo);
-            DsDinhKe = DsDinhKe.OrderBy(t => t._trongSo).ToList(); //Sắp xếp các đỉnh kề theo thứ tự tăng dần dựa trên trọng số
             foreach (DinhKe i in DsDinhKe.ToList()) //Kiểm tra các đỉnh kề của đỉnh đang xét đã được xét trước đây hay chưa
             {
                 if (i._dinh.CheckList(check) > 0) //Nếu đã xét rồi thì xoá khỏi ds đỉnh kề
                     DsDinhKe.Remove(i);
             }
+        }
+        public void Duyet(Input _InputData,XuLy xlds,List<string> check,Result a)
+        {
+            if(DsDinhKe.Count==0) //Nêu đỉnh chưa có danh sách các đỉnh kề thì dò trong input và tạo ra danh sách đỉnh kề
+                FindNearPoint(_InputData.DsTrongSo);
+            DsDinhKe = DsDinhKe.OrderBy(t => t._trongSo).ToList(); //Sắp xếp các đỉnh kề theo thứ tự tăng dần dựa trên trọng số
+            ChangeCheckList(check);
             foreach (DinhKe i in DsDinhKe)
             {
                 if (_name == _InputData.Root) //Sau khi xét được 1 đường đi từ 1 đỉnh kề thì reset lại danh sách các đỉnh đã xét để xét đường đi từ 1 đỉnh kề khác 

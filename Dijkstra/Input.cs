@@ -82,78 +82,54 @@ namespace Dijkstra
             }
             return a;
         }
+        void DocDsDinh()
+        {
+            XmlNodeList lsdinh = InputData.SelectNodes("Input/DsDinh/Dinh");
+            foreach (XmlNode i in lsdinh)
+            {
+                Dinh temp = new Dinh();
+                temp.name = i["name"].InnerText;
+                _DsDinh.Add(temp);
+            }
+        }
+        void DocDsCanh()
+        {
+            XmlNodeList lscanh = InputData.SelectNodes("Input/DsCanh/Canh");
+            foreach (XmlNode i in lscanh)
+            {
+                Canh a = new Canh();
+                Dinh b1 = new Dinh();
+                Dinh b2 = new Dinh();
+                a.TrongSo = double.Parse(i["trongso"].InnerText);
+                XmlNode temp = i.SelectSingleNode("dinhdau");
+                b1.name = temp["name"].InnerText;
+                a.dinhdau = b1;
+                temp = i.SelectSingleNode("dinhcuoi");
+                b2.name = temp["name"].InnerText;
+                a.dinhcuoi = b2;
+                _DsTrongSo.Add(a);
+            }
+        }
+        void DocRootEnd()
+        {
+            XmlNode rootend = InputData.SelectSingleNode("Input");
+            _Root = rootend["Root"].InnerText;
+            _End = rootend["End"].InnerText;
+        }
         public void DocFile(string xmlfile)
         {
             try
             {
                 InputData.Load(xmlfile);
-                XmlNodeList lsdinh = InputData.SelectNodes("Input/DsDinh/Dinh");
-                XmlNodeList lscanh = InputData.SelectNodes("Input/DsCanh/Canh");
-                foreach(XmlNode i in lsdinh)
-                {
-                    Dinh temp = new Dinh();
-                    temp.name = i["name"].InnerText;
-                    _DsDinh.Add(temp);
-                }
-                foreach(XmlNode i in lscanh)
-                {
-                    Canh a = new Canh();
-                    Dinh b1 = new Dinh();
-                    Dinh b2 = new Dinh();
-                    a.TrongSo = double.Parse(i["trongso"].InnerText);
-                    XmlNode temp = i.SelectSingleNode("dinhdau");
-                    b1.name = temp["name"].InnerText;
-                    a.dinhdau = b1;                 
-                    temp = i.SelectSingleNode("dinhcuoi");
-                    b2.name = temp["name"].InnerText;
-                    a.dinhcuoi = b2;                   
-                    _DsTrongSo.Add(a);
-                }
-                XmlNode rootend = InputData.SelectSingleNode("Input");
-                _Root = rootend["Root"].InnerText;
-                _End = rootend["End"].InnerText;
+                DocDsDinh();
+                DocDsCanh();
+                DocRootEnd();       
             }
             catch
             {
                 Console.WriteLine("Khong the doc file");
             }
             SapXep();
-        }
-        public void Nhap()
-        {
-            int n=0;
-            Console.Write("Nhap so dinh: ");           
-            n=int.Parse(Console.ReadLine());
-            Console.WriteLine("\nNhap cac dinh:");
-            for(int i=0;i<n;i++)
-            {
-                Dinh temp = new Dinh();
-                Console.Write("Nhap ten dinh: ");
-                temp.name = Console.ReadLine();
-                _DsDinh.Add(temp);
-            }
-            Console.Write("Nhap so canh: ");
-            n = int.Parse(Console.ReadLine());
-            Console.WriteLine("Nhap cac canh:");
-            for (int i = 0; i < n; i++)
-            {
-                Canh a = new Canh();
-                Dinh c = new Dinh();
-                Console.Write("Nhap ten dinh dau: ");
-                c.name = Console.ReadLine();
-                a.dinhdau = c;
-                Console.Write("Nhap ten dinh cuoi: ");
-                c.name = Console.ReadLine();
-                a.dinhcuoi = c;
-                Console.Write("Nhap trong so cua canh: ");
-                int b = int.Parse(Console.ReadLine());
-                a.TrongSo = b;
-                _DsTrongSo.Add(a);
-            }
-            Console.Write("Nhap dinh bat dau: ");
-            _Root = Console.ReadLine();
-            Console.Write("Nhap dinh ket thuc: ");
-            _End = Console.ReadLine();
         }
     }
 }
