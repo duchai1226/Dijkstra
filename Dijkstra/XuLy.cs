@@ -44,10 +44,6 @@ namespace Dijkstra
                 _InputData = value;
             }
         }      
-        public void ReturnResult(Result a)
-        {
-            _ketQua.Add(a);
-        }
         public void TinhToan(Dinh Root)
         {
             Result a = new Result ();// tao 1 bien kieu Result de tra ket qua ve danh sach ket qua
