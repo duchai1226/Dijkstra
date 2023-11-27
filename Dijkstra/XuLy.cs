@@ -71,7 +71,6 @@ namespace Dijkstra
                 Console.Write("{0} ", min._map[i]);
             }
             Console.Write("\nDo dai duong di: {0}",min._tongTrongSo);
-
         }
     }
         
